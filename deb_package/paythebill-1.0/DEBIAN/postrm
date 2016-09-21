@@ -1,0 +1,8 @@
+#!/bin/sh
+# this script runs after the package has been removed
+
+
+rm -f $HOME/.config/autostart/paythebillreminder.desktop
+
+
+exit 0
