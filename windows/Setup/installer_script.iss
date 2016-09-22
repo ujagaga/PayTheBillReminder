@@ -2,39 +2,45 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [Setup]
-AppName=PayTheBillReminder
+AppName=PayTheBillsReminder
 AppVersion=1.0
 AppCopyright=Rada Berar
 PrivilegesRequired=none
 RestartIfNeededByRun=False
-DefaultDirName={pf}\PayTheBillReminder
+DefaultDirName={pf}\PayTheBillsReminder
 AppPublisher=Rada Berar
 AppPublisherURL=ujagaga@gmail.com
 CreateUninstallRegKey=no
 UpdateUninstallLogAppName=False
-UninstallDisplayName=PayTheBillReminderUninstaller
+UninstallDisplayName=PayTheBillsReminderUninstaller
 UninstallDisplayIcon={uninstallexe}
 OutputDir=..\
-OutputBaseFilename=PayTheBillReminder_winInstall
+OutputBaseFilename=PayTheBillsReminder_winInstall
 AlwaysShowGroupOnReadyPage=True
-DefaultGroupName=PayTheBill Reminder
+DefaultGroupName=PayTheBills Reminder
 AppContact=ujagaga@gmail.com
 DisableWelcomePage=True
 AppId={{717B0A65-05D2-49D0-8C9C-FF4DE997097C}
-VersionInfoVersion=3.0
-VersionInfoDescription=PayTheBill Reminder 
+VersionInfoVersion=1.0
+VersionInfoDescription=PayTheBills Reminder 
 VersionInfoCopyright=Rada Berar
-SourceDir=PayTheBillReminder
+SourceDir=PayTheBillsReminder
 VersionInfoCompany=Private indipendent endevor
 
 [Files]
-Source: "D:\projects\Python\PayTheBillReminder\Setup\PayTheBillReminder\paythebillsreminder.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "paythebillsreminder.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "icon.gif"; DestDir: "{app}"; Flags: ignoreversion
+Source: "readme.txt"; DestDir: "{app}"; Flags: ignoreversion
 
 [UninstallRun]
-Filename: "{app}\kill_running.bat"; WorkingDir: "{app}"; Flags: shellexec runminimized waituntilterminated
 
 [UninstallDelete]
-Type: files; Name: "{app}\config.txt"
+Type: files; Name: "{app}\bill_list.txt"
 
 [Run]
 Filename: "{app}\paythebillsreminder.exe"; WorkingDir: "{app}"; Flags: nowait
+
+[Icons]
+Name: "{group}\PayTheBills Reminder"; Filename: "{app}\paythebillsreminder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\paythebillsreminder.exe"
+Name: "{group}\Uninstall"; Filename: "{uninstallexe}"; IconFilename: "{app}\paythebillsreminder.exe"
+Name: "{userstartup}\PayTheBills Reminder"; Filename: "{app}\paythebillsreminder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\paythebillsreminder.exe"; Parameters: "silent"

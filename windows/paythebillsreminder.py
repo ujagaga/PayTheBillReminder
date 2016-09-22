@@ -36,7 +36,7 @@ def check_bills_file():
     unpaid_dict = {}
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r')
+    bills_file = open(configFileName, 'r', encoding="utf-8")
     content = bills_file.read().splitlines()
     bills_file.close()
 
@@ -70,7 +70,7 @@ def check_bills_file():
     if alert_date == 0:
         alert_date = 19
 
-        config_file = open(configFileName, 'w')
+        config_file = open(configFileName, 'w', encoding="utf-8")
         config_file.write('%d\n' % alert_date)
 
         for new_lines in content:
@@ -84,11 +84,11 @@ def mark_as_payed(bill_name):
     global current_date
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r')
+    bills_file = open(configFileName, 'r', encoding="utf-8")
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    config_file = open(configFileName, 'w')
+    config_file = open(configFileName, 'w', encoding="utf-8")
 
     for i in range(0, len(content)):
         if content[i] == bill_name:
@@ -101,11 +101,11 @@ def mark_as_payed(bill_name):
 
 def mark_as_unpayed(bill_name):
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r')
+    bills_file = open(configFileName, 'r', encoding="utf-8")
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    config_file = open(configFileName, 'w')
+    config_file = open(configFileName, 'w', encoding="utf-8")
 
     for i in range(0, len(content)):
         if content[i] == bill_name:
@@ -275,7 +275,7 @@ def setup():
 
     try:
         # write config file
-        config_file = open(configFileName, 'w')
+        config_file = open(configFileName, 'w', encoding="utf-8")
         config_file.write("19\n")
         config_file.write(eng_string)
         config_file.write(rs_string)
@@ -292,7 +292,7 @@ def archive_current_list():
     global alert_date
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r')
+    bills_file = open(configFileName, 'r', encoding="utf-8")
     content = bills_file.read().splitlines()
     bills_file.close()
 
@@ -321,7 +321,7 @@ def archive_current_list():
     try:
         rename(configFileName, "archive_%d.txt" % first_paid_month)
         # write config file
-        config_file = open(configFileName, 'w')
+        config_file = open(configFileName, 'w', encoding="utf-8")
 
         if alert_date == 0:
             alert_date = 19
