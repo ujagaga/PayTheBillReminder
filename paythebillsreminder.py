@@ -222,9 +222,9 @@ class BillList(Tk):
             c.pack(side=RIGHT)
             c.select()
 
-        Button(self.frame_dialog, text='CONFIGURE', command=self.setup, width=6).pack(side=RIGHT, padx=5, pady=5)
+        Button(self.frame_dialog, text='CONFIGURE', command=self.setup, width=9).pack(side=RIGHT, padx=5, pady=5)
 
-        Button(self.frame_dialog, text='DISMISS', command=self.dismiss, width=4).pack(side=LEFT, padx=5, pady=5)
+        Button(self.frame_dialog, text='DISMISS', command=self.dismiss, width=9).pack(side=LEFT, padx=5, pady=5)
 
     def setup(self, event=None):
         editor = getenv('EDITOR')

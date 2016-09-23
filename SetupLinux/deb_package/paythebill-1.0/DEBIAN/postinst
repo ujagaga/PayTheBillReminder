@@ -13,6 +13,4 @@ echo "StartupNotify=false" >> $SHORTCUT_NAME
 echo "Terminal=false" >> $SHORTCUT_NAME
 echo "Path=/opt/paythebill/" >> $SHORTCUT_NAME
 
-chmod 777 /opt/paythebill/
-
 exit 0

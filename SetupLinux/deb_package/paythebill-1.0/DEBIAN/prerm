@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -f /opt/paythebill/bill_list.txt
+rm -fr $HOME/.paythebillsreminder
 
 sleep 1
 

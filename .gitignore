@@ -1,4 +1,3 @@
-/linux/deb_package/*.deb
-/deb_package/paythebill-1.0/opt/paythebill/*.*
+/SetupLinux/deb_package/paythebill-1.0/opt/paythebill/*.*
+__pycache__
 bill_list.txt
-
