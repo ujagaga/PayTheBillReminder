@@ -1,9 +1,0 @@
-#!/bin/sh
-
-rm -f /opt/paythebill/bill_list.txt
-
-sleep 1
-
-
-
-

@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8522a4b5-9deb-4068-8741-bb11c976e94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PayTheBillReminder.iml" afterPath="$PROJECT_DIR$/.idea/PayTheBillReminder.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/build_installer.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/DEBIAN/control" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/DEBIAN/postinst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/DEBIAN/postrm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/DEBIAN/prerm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/opt/paythebill/paythebillsreminder" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/deb_package/paythebill-1.0/usr/share/applications/paythebillsreminder.desktop" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/icon.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/icon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linux/paythebillsreminder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/windows/Setup/build_installer.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/windows/Setup/installer_script.iss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/windows/icon.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/windows/icon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/windows/paythebillsreminder.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/windows/Setup/build_installer.bat" afterPath="$PROJECT_DIR$/windows/Setup/build_installer.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/windows/paythebillsreminder.py" afterPath="$PROJECT_DIR$/windows/paythebillsreminder.py" />
     </list>
     <ignored path="PayTheBillReminder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,20 +37,25 @@
     <favorites_list name="PayTheBillReminder" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="paythebillsreminder.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py">
+    <leaf>
+      <file leaf-file-name="build_installer.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SetupLinux/build_installer.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding>
-                <element signature="e#20#63#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,6 +65,7 @@
       <list>
         <option value="$PROJECT_DIR$/bill_list.txt" />
         <option value="$PROJECT_DIR$/pay_the_bill.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/windows/paythebillsreminder.py" />
       </list>
     </option>
@@ -112,7 +129,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="windows" />
+              <option name="myItemId" value="SetupWin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PayTheBillReminder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PayTheBillReminder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SetupLinux" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -123,7 +154,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/windows/paythebillsreminder.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -367,16 +398,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py" />
+    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py" />
+    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py" />
     <entry file="file://$PROJECT_DIR$/paythebillsreminder.py" />
     <entry file="file://$PROJECT_DIR$/pay_the_bill.py" />
     <entry file="file://$PROJECT_DIR$/pay_the_bill.py" />
@@ -393,28 +417,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/windows/bill_list.txt">
+    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/1432853898/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="2762" column="8" selection-start-line="2762" selection-start-column="8" selection-end-line="2762" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="817" column="20" selection-start-line="817" selection-start-column="20" selection-end-line="817" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/bill_list.txt" />
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py" />
+    <entry file="file://$PROJECT_DIR$/SetupLinux/build_installer.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/1432853898/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="4942" column="8" selection-start-line="4942" selection-start-column="8" selection-end-line="4942" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/paythebillsreminder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#20#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

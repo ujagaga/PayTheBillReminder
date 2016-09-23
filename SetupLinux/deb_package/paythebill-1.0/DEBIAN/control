@@ -1,0 +1,15 @@
+Package: paythebillreminder
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: 
+Maintainer: Rada Berar <ujagaga@gmail.com>
+Homepage: http://radinaradionica.com/en/handicrafts/Programming
+Description: Reminder to pay the monthly bills.
+ This is a pop-up reminder to pay the monthly bills.
+ It checks it's configuration file to see if there are any unpaid bills and
+ displays the notification if there are any and if the configured due date
+ has passed. If started with any parameter and if the due date has not passed,
+ no notification is displayed.  
+ 
