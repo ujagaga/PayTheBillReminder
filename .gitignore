@@ -1,3 +1,4 @@
 /SetupLinux/deb_package/paythebill-1.0/opt/paythebill/*.*
 __pycache__
 bill_list.txt
+/SetupWin/PayTheBillsReminder/
