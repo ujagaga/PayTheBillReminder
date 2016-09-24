@@ -16,7 +16,7 @@ if getattr(sys, 'frozen', False):
 elif __file__:
     current_path = path.dirname(path.realpath(__file__))
 
-configFileLocation = path.expanduser("~") + '/.paythebillsreminder'
+configFileLocation = current_path # path.expanduser("~") + '/.paythebillsreminder'
 if not path.exists(configFileLocation):
     makedirs(configFileLocation)
 
