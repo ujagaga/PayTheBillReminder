@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# coding: utf-8
+'''
+Re-written for python2
+'''
 
 from os import path, rename, system, getenv, makedirs
 import sys
@@ -12,8 +16,9 @@ if getattr(sys, 'frozen', False):
 elif __file__:
     current_path = path.dirname(path.realpath(__file__))
 
-configFileLocation = path.expanduser("~") + '/.paythebillsreminder'
-makedirs(configFileLocation, exist_ok=True)
+configFileLocation = current_path # path.expanduser("~") + '/.paythebillsreminder'
+if not path.exists(configFileLocation):
+    makedirs(configFileLocation)
 
 configFileName = configFileLocation + '/bill_list.txt'
 icon_path = current_path + '/icon.gif'
@@ -39,43 +44,45 @@ def check_bills_file():
     unpaid_dict = {}
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r', encoding="utf-8")
+    bills_file = open(configFileName, 'r')
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    for row in range(0, len(content)):
-        line = content[row]
-    # for line in content:
-        if line.startswith('#') or len(line) < 2:
+    for line in content:
+        if line.startswith('#') or (len(line) < 3):
             continue
 
-        if alert_date == 0:
-            if len(line) < 3:
-                temp = int(line, 10)
-                if (temp > 1) and (temp < 28):
-                    alert_date = temp
-                    continue
+        if 'alert_date' in line:
+            while ' ' in line:
+                line = line.replace(' ', '')
 
-        data = line.split("|")
+            data = line.split('#')[0].split('=')
 
-        bill_name = data[0]
-
-        if len(data) > 1:
-            date_paid = data[1]
-            month_paid = int(date_paid.split('.')[0], 10)
-
-            if month_paid == current_date.month:
-                paid_dict[str(row) + '|' + line] = 0
-            else:
-                # this was paid some other month so archive
-                return False
+            temp = int(data[1], 10)
+            if (temp > 1) and (temp < 28):
+                alert_date = temp
         else:
-            unpaid_dict[str(row) + '|' + bill_name] = 0
+
+            data = line.split("|")
+
+            bill_name = data[0]
+
+            if len(data) > 1:
+                date_paid = data[1]
+                month_paid = int(date_paid.split('.')[0], 10)
+
+                if month_paid == current_date.month:
+                    paid_dict[line] = 0
+                else:
+                    # this was paid some other month so archive
+                    return False
+            else:
+                unpaid_dict[bill_name] = 0
 
     if alert_date == 0:
         alert_date = 19
 
-        config_file = open(configFileName, 'w', encoding="utf-8")
+        config_file = open(configFileName, 'w')
         config_file.write('%d\n' % alert_date)
 
         for new_lines in content:
@@ -89,11 +96,11 @@ def mark_as_payed(bill_name):
     global current_date
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r', encoding="utf-8")
+    bills_file = open(configFileName, 'r')
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    config_file = open(configFileName, 'w', encoding="utf-8")
+    config_file = open(configFileName, 'w')
 
     for i in range(0, len(content)):
         if content[i] == bill_name:
@@ -106,11 +113,11 @@ def mark_as_payed(bill_name):
 
 def mark_as_unpayed(bill_name):
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r', encoding="utf-8")
+    bills_file = open(configFileName, 'r')
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    config_file = open(configFileName, 'w', encoding="utf-8")
+    config_file = open(configFileName, 'w')
 
     for i in range(0, len(content)):
         if content[i] == bill_name:
@@ -196,7 +203,7 @@ class BillList(Tk):
 
         Label(self.frame_unpaid, text=unpaid_bills_label_text).pack(side=TOP, padx=5, pady=10)
 
-        for bill_string in unpaid_dict:
+        for bill_string in sorted(unpaid_dict):
             local_frame = Frame(self.frame_unpaid)
             local_frame.pack(pady=0, padx=0, fill=X)
             unpaid_dict[bill_string] = IntVar()
@@ -206,8 +213,7 @@ class BillList(Tk):
 
         Label(self.frame_paid, text=paid_bills_label_text).pack(side=TOP, padx=5, pady=10)
 
-        paid_dict = sorted(paid_dict)
-        for data in paid_dict:
+        for data in sorted(paid_dict):
             bill_data = data.split('|')
             bill_string = bill_data[0]
             if len(bill_data) > 1:
@@ -269,24 +275,12 @@ class BillList(Tk):
 def setup():
     global configFileName
 
-    eng_string = "# English:\n"
-    eng_string += "# The first non comment line is the day of the month when this app will display notification.\n"
-    eng_string += "# Each new line after this comment represents a new bill to be paid each month.\n"
-    eng_string += "# Paid bills will have a date next to it.\n"
-
-    rs_string = "# Srpski:\n"
-    rs_string += "# Prva nekomentarisana linija pretstavlja datum kad će ova aplikacija da prikaže obaveštenje.\n"
-    rs_string += "# Svaka nova linija posle ovog komentara pretstavlja nov račun koji treba da se plati svakog meseca.\n"
-    rs_string += "# Plaćeni računi imaju pored sebe datum.\n"
-
     try:
         # write config file
-        config_file = open(configFileName, 'w', encoding="utf-8")
-        config_file.write("19\n")
-        config_file.write(eng_string)
-        config_file.write(rs_string)
-        config_file.write("bill_1\n")
-        config_file.write("bill_2\n")
+        config_file = open(configFileName, 'w')
+        config_file.write("alert_date = 19 # If you need a different date, change the number.\n\n")
+        config_file.write("Example bill. Do edit this\n")
+        config_file.write("Second example bill. Do edit this too\n")
         config_file.close()
     except EnvironmentError as e:
         InfoBox("Error: " + e)
@@ -298,7 +292,7 @@ def archive_current_list():
     global alert_date
 
     # reading the contents of the config file
-    bills_file = open(configFileName, 'r', encoding="utf-8")
+    bills_file = open(configFileName, 'r')
     content = bills_file.read().splitlines()
     bills_file.close()
 
@@ -327,7 +321,7 @@ def archive_current_list():
     try:
         rename(configFileName, configFileLocation + "/archive_%d.txt" % first_paid_month)
         # write config file
-        config_file = open(configFileName, 'w', encoding="utf-8")
+        config_file = open(configFileName, 'w')
 
         if alert_date == 0:
             alert_date = 19

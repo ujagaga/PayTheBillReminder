@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rm -fr $HOME/.paythebillsreminder
+
+sleep 1
+
+
+
+
