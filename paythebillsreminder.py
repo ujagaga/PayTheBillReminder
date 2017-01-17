@@ -43,7 +43,9 @@ def check_bills_file():
     content = bills_file.read().splitlines()
     bills_file.close()
 
-    for line in content:
+    for row in range(0, len(content)):
+        line = content[row]
+    # for line in content:
         if line.startswith('#') or len(line) < 2:
             continue
 
@@ -63,12 +65,12 @@ def check_bills_file():
             month_paid = int(date_paid.split('.')[0], 10)
 
             if month_paid == current_date.month:
-                paid_dict[line] = 0
+                paid_dict[str(row) + '|' + line] = 0
             else:
                 # this was paid some other month so archive
                 return False
         else:
-            unpaid_dict[bill_name] = 0
+            unpaid_dict[str(row) + '|' + bill_name] = 0
 
     if alert_date == 0:
         alert_date = 19
@@ -204,6 +206,7 @@ class BillList(Tk):
 
         Label(self.frame_paid, text=paid_bills_label_text).pack(side=TOP, padx=5, pady=10)
 
+        paid_dict = sorted(paid_dict)
         for data in paid_dict:
             bill_data = data.split('|')
             bill_string = bill_data[0]
@@ -322,7 +325,7 @@ def archive_current_list():
                 first_paid_month = month_paid
 
     try:
-        rename(configFileName, "archive_%d.txt" % first_paid_month)
+        rename(configFileName, configFileLocation + "/archive_%d.txt" % first_paid_month)
         # write config file
         config_file = open(configFileName, 'w', encoding="utf-8")
 
